@@ -51,7 +51,7 @@ export default function ContactPage() {
 
             {/* Email Card */}
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=patriciakinanti.sms18@gmail.com"
+              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=patriciakinanti.sms18@gmail.com&su=Inquiry%20from%20Website&body=Hello%2C%20I%20would%20like%20to%20inquire%20about...&tf=1"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-card bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 transition-all duration-500 hover:bg-white/20 animate-fade-in block"

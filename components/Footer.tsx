@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="glass-effect text-white border-t border-white/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div className="text-center sm:text-left">
             <div className="flex items-center gap-3 mb-4 justify-center sm:justify-start">
@@ -44,6 +44,11 @@ export default function Footer() {
                   Vision
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="text-white/70 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -76,15 +81,92 @@ export default function Footer() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
                 </path> 
                 </svg> +62 813 8083 4908 </li> </ul> </div>
+        </div>
 
+        {/* Our References and Partners Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 pb-8">
           {/* Our References */}
-          <div className="text-center sm:text-left">
+          <div className="text-center">
             <h4 className="font-bold text-lg mb-4">Our References</h4>
-            <img
-              src="/images/jasamarga2.png"
-              alt="Jasa Marga"
-              className="mx-auto sm:mx-0 h-22 w-auto object-contain"
-            />
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+              <img
+                src="/images/JasaMarga Tollroad (1).png"
+                alt="Jasa Marga"
+                className="h-24 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/Korlantas (1).png"
+                alt="Korlantas"
+                className="h-24 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/Marga Sarana.png"
+                alt="Marga Sarana"
+                className="h-24 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/MLJ.png"
+                alt="MLJ"
+                className="h-24 w-auto object-contain hover:scale-110 transition-transform"
+              />
+            </div>
+          </div>
+
+          {/* Our Partners */}
+          <div className="text-center">
+            <h4 className="font-bold text-lg mb-4">Our Partners</h4>
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+              <img
+                src="/images/tplink (1).png"
+                alt="TP-Link"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/hikvision 1.png"
+                alt="Hikvision"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/mikrotik (1).png"
+                alt="Mikrotik"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/dahua.png"
+                alt="Dahua"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/belden(1).png"
+                alt="Belden"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/indorack1.png"
+                alt="Indorack"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/esit.png"
+                alt="ESIT"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/komoto (1).png"
+                alt="Komoto"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/tattile.png"
+                alt="Tattile"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+              <img
+                src="/images/zebra 1.png"
+                alt="Zebra"
+                className="h-12 w-auto object-contain hover:scale-110 transition-transform"
+              />
+            </div>
           </div>
         </div>
 
@@ -92,9 +174,7 @@ export default function Footer() {
           <p className="text-base sm:text-lg font-medium mb-2">
             PT Sidik Mitra Sejahtera. All Rights Reserved.
           </p>
-          <p className="text-white/70 text-sm">
-            Made with ❤️ for a better digital future
-          </p>
+          
         </div>
       </div>
     </footer>

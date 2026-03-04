@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^12.34.5",
     "next": "^15.1.0",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "react-scroll-parallax": "^3.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",

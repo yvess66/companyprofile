@@ -4,10 +4,8 @@ import { useEffect, useState } from 'react';
 
 const images = [
   '/images/1.jpeg',
-  '/images/2.jpeg',
   '/images/3.jpeg',
-  '/images/4.jpeg',
-  '/images/5.jpeg',
+  '/images/j.jpeg',
 ];
 
 export default function HeroCarousel() {
@@ -26,7 +24,7 @@ export default function HeroCarousel() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden">
       {/* Image Gallery Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden" style={{ perspective: '1000px' }}>
         {images.map((src, index) => (
@@ -54,6 +52,6 @@ export default function HeroCarousel() {
           />
         ))}
       </div>
-    </section>
+    </div>
   );
 }

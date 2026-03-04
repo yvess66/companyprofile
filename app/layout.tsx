@@ -14,11 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
-      <body className="gradient-bg min-h-screen text-gray-800">
+    <html lang="en" className="scroll-smooth">
+      <body className="gradient-bg text-gray-800 m-0 p-0">
         <Navbar />
-        {children}
-        <Footer />
+        <div className="pt-[88px]">
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

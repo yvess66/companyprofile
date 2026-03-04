@@ -13,7 +13,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold">MyCompany</h3>
+              <h3 className="text-xl font-bold">Sidik Mitra Sejahtera</h3>
             </div>
             <p className="text-white/70 text-sm">
               Building a digital future with you through innovation and cutting-edge technology.

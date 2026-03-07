@@ -169,8 +169,8 @@ export default function Home() {
           />
         </div>
 
-        <motion.div className="relative z-10 h-full overflow-y-auto" variants={textContainer}>
-          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16 min-h-full">
+        <motion.div className="relative z-10 h-full overflow-hidden" variants={textContainer}>
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16 h-full flex flex-col">
             <motion.h2 variants={textItem} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>
               Activity Section
             </motion.h2>
@@ -178,15 +178,21 @@ export default function Home() {
               Update kegiatan yang sedang berjalan dan yang sudah selesai.
             </motion.p>
 
-            <motion.div variants={textItem} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
-              {activityUpdates.map((activity) => (
-                <article key={activity.title} className="rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/10">
-                  <img src={activity.image} alt={activity.title} className="w-full h-40 object-cover" />
-                  <div className="p-4">
-                    <h3 className="text-white font-semibold leading-snug">{activity.title}</h3>
-                  </div>
-                </article>
-              ))}
+            <motion.div variants={textItem} className="flex-1 overflow-y-scroll sm:overflow-visible pr-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 pb-2 sm:pb-0">
+                {activityUpdates.map((activity) => (
+                  <Link
+                    key={activity.title}
+                    href="/activities"
+                    className="block rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/10 hover:border-white/30 transition"
+                  >
+                    <img src={activity.image} alt={activity.title} className="w-full h-40 object-cover" />
+                    <div className="p-4">
+                      <h3 className="text-white font-semibold leading-snug">{activity.title}</h3>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </motion.div>
           </div>
         </motion.div>

@@ -1,4 +1,51 @@
+"use client";
+
+import type { MouseEvent } from "react";
+
 export default function ContactPage() {
+  const emailTo = "patriciakinanti.sms18@gmail.com";
+  const emailSubject = "Inquiry from Website";
+  const emailBody = "Hello, I would like to inquire about...";
+
+  const gmailWebUrl = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${encodeURIComponent(emailTo)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}&tf=1`;
+
+  const handleEmailClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (typeof window === "undefined") return;
+
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (!isAndroid && !isIOS) return;
+
+    event.preventDefault();
+
+    const gmailAppUrl = `googlegmail://co?to=${encodeURIComponent(emailTo)}&subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const gmailIntentUrl = `intent://co?to=${encodeURIComponent(emailTo)}&subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}#Intent;scheme=googlegmail;package=com.google.android.gm;end`;
+    let appOpened = false;
+
+    const handleVisibility = () => {
+      if (document.hidden) appOpened = true;
+    };
+
+    document.addEventListener("visibilitychange", handleVisibility);
+    if (isAndroid) {
+      window.location.href = gmailIntentUrl;
+      window.setTimeout(() => {
+        if (!appOpened) {
+          window.location.href = gmailAppUrl;
+        }
+      }, 250);
+    } else {
+      window.location.href = gmailAppUrl;
+    }
+
+    window.setTimeout(() => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+      if (!appOpened) {
+        window.alert("Aplikasi Gmail tidak ditemukan di perangkat ini.");
+      }
+    }, 1200);
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -51,9 +98,10 @@ export default function ContactPage() {
 
             {/* Email Card */}
             <a
-              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=patriciakinanti.sms18@gmail.com&su=Inquiry%20from%20Website&body=Hello%2C%20I%20would%20like%20to%20inquire%20about...&tf=1"
+              href={gmailWebUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleEmailClick}
               className="contact-card bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 transition-all duration-500 hover:bg-white/20 animate-fade-in block"
               style={{ animationDelay: "0.2s" }}
       >

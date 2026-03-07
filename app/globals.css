@@ -312,7 +312,7 @@ img {
 }
 
 .nav-link.active {
-  color: rgb(96, 165, 250);
+  color: rgb(255, 255, 255);
   background: transparent;
   text-shadow: 0 0 20px rgba(96, 165, 250, 0.8), 0 0 10px rgba(96, 165, 250, 0.6);
   font-weight: 600;

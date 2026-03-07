@@ -8,11 +8,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="text-center sm:text-left">
             <div className="flex items-center gap-3 mb-4 justify-center sm:justify-start">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-              </div>
+              
               <h3 className="text-xl font-bold">Sidik Mitra Sejahtera</h3>
             </div>
             <p className="text-white/70 text-sm">
@@ -30,11 +26,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="text-white/70 hover:text-white transition-colors">
-                  Our Team
-                </Link>
-              </li>
-              <li>
                 <Link href="/products" className="text-white/70 hover:text-white transition-colors">
                   Products
                 </Link>
@@ -45,6 +36,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/activities" className="text-white/70 hover:text-white transition-colors">
+                  Activities
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-white/70 hover:text-white transition-colors">
                   Contact
                 </Link>
@@ -52,16 +48,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="text-center sm:text-left">
-            <h4 className="font-bold text-lg mb-4">Services</h4>
-            <ul className="space-y-2 text-sm">
-              <li><span className="text-white/70">Web Development</span></li>
-              <li><span className="text-white/70">Mobile Apps</span></li>
-              <li><span className="text-white/70">Cloud Solutions</span></li>
-              <li><span className="text-white/70">Consulting</span></li>
-            </ul>
-          </div>
+          
 
           {/* Contact */} 
           <div className="text-center sm:text-left"> 
@@ -172,7 +159,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-base sm:text-lg font-medium mb-2">
-            PT Sidik Mitra Sejahtera. All Rights Reserved.
+            Copyright © 2026 PT Sidik Mitra Sejahtera. All Rights Reserved.
           </p>
           
         </div>

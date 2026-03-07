@@ -1,8 +1,28 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function ActivitiesPage() {
+  const [selectedImage, setSelectedImage] = useState<{ image: string; title: string } | null>(null);
+
+  // Close modal on ESC key and hide navbar when lightbox is open
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.classList.add('lightbox-open');
+    } else {
+      document.body.classList.remove('lightbox-open');
+    }
+  }, [selectedImage]);
+
   // Daftar foto kegiatan - ganti path di sini untuk upload foto baru
   const activities = [
     { id: 1, image: "/images/al.jpeg", title: "Instalasi CCTV Area Operasional" },
@@ -60,7 +80,8 @@ export default function ActivitiesPage() {
             <motion.article
               key={activity.id}
               variants={fadeInUp}
-              className="group relative rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 hover:transform hover:scale-105"
+              onClick={() => setSelectedImage({ image: activity.image, title: activity.title })}
+              className="group relative rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -88,6 +109,45 @@ export default function ActivitiesPage() {
          
         </motion.div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+            style={{ margin: 0 }}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative max-w-4xl w-full"
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-10 sm:-top-12 right-0 text-white hover:text-white/80 text-3xl sm:text-4xl font-light transition-colors z-10 bg-black/50 hover:bg-black/70 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center"
+                aria-label="Close"
+              >
+                ×
+              </button>
+              <img
+                src={selectedImage.image}
+                alt={selectedImage.title}
+                onClick={(e) => e.stopPropagation()}
+                className="w-full h-auto max-h-[70vh] object-contain rounded-lg cursor-default shadow-2xl"
+              />
+              <div className="mt-3 sm:mt-4 text-center">
+                <h3 className="text-white text-base sm:text-lg font-semibold">{selectedImage.title}</h3>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }

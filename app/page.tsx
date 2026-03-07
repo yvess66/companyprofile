@@ -178,7 +178,7 @@ export default function Home() {
               Update kegiatan yang sedang berjalan dan yang sudah selesai.
             </motion.p>
 
-            <motion.div variants={textItem} className="flex-1 overflow-y-scroll sm:overflow-visible pr-1">
+            <motion.div variants={textItem} className="flex-1 overflow-y-auto sm:overflow-visible pr-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 pb-2 sm:pb-0">
                 {activityUpdates.map((activity) => (
                   <Link
